@@ -6,8 +6,8 @@ class Cards {
 
     private fun generateCards(): List<Card> {
         val cards = mutableListOf<Card>()
-        Type.values().forEach { type ->
-            Symbol.values().forEach { symbol ->
+        Symbol.values().forEach { type ->
+            Type.values().forEach { symbol ->
                 cards.add(Card(type, symbol))
             }
         }

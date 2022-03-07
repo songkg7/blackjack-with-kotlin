@@ -1,4 +1,4 @@
-package com.example.blackjack.domain
+package com.example.blackjack.domain.gamer
 
 object Player : Gamer {
 

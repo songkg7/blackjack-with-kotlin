@@ -7,8 +7,9 @@ class BlackjackApp
 fun main(array: Array<String>) {
     val scanner = Scanner(System.`in`)
 
-    val name = scanner.nextLine()
-    val age = scanner.nextLine()
+    println("게임에 참가할 사람들의 이름을 입력해주세요 (,)")
+    val nameInput = scanner.nextLine()
+    val names = nameInput.split(",").map { it.trim() }
 
-    println("name: $name, age: $age")
+    println("names: $names")
 }
