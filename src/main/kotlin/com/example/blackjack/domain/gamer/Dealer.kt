@@ -1,6 +1,6 @@
 package com.example.blackjack.domain.gamer
 
-object Dealer : Gamer {
+class Dealer(val name: String) : Gamer {
 
     override fun open() {
         TODO("Not yet implemented")
