@@ -1,15 +1,11 @@
 package com.example.blackjack
 
-import java.util.Scanner
+import com.example.blackjack.domain.view.InputView
 
 class BlackjackApp
 
-fun main(array: Array<String>) {
-    val scanner = Scanner(System.`in`)
+fun main() {
 
-    println("게임에 참가할 사람들의 이름을 입력해주세요 (,)")
-    val nameInput = scanner.nextLine()
-    val names = nameInput.split(",").map { it.trim() }
+    InputView.inputGamersName()
 
-    println("names: $names")
 }
