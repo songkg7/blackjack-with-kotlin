@@ -14,9 +14,11 @@ class BlackjackApp(private val inputView: InputView, private val outputView: Out
 
         val cards = Cards()
 
-        val dealer = Dealer(gamersName[0])
+        val dealer = Dealer(gamersName[0], cards)
         val player = Player(gamersName[1], cards)
 
+        // 현재 겜블러들의 손패를 공개하고 카드를 더 뽑을 것인지를 선택
+        println("현재 player 의 hands: ${player.open()}")
 
 
     }
