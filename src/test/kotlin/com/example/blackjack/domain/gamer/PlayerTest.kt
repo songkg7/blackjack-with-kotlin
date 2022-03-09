@@ -12,12 +12,12 @@ internal class PlayerTest {
     @Test
     @DisplayName("card 를 draw 하면 손패에 카드가 추가된다.")
     internal fun draw() {
-        val player = Player("user", Cards())
+        val player = Player("user")
         player.draw()
 
         val hands = player.open()
-        println("hands = $hands")
+        println("hands = ${hands.show()}")
 
-        assertThat(hands).hasSize(3)
+        assertThat(hands.show()).hasSize(3)
     }
 }

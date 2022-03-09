@@ -1,31 +1,13 @@
 package com.example.blackjack.domain.card
 
-class Cards {
+class Cards(private val cards: List<Card>){
 
-    private val cards: MutableList<Card> = initCards()
+    fun dealOut(): Cards {
+        val card = Deck.dealOut()
+        return Cards(cards + card)
+    }
 
-    private fun initCards(): MutableList<Card> {
-        val cards = mutableListOf<Card>()
-        Symbol.values().forEach { type ->
-            Type.values().forEach { symbol ->
-                cards.add(Card(type, symbol))
-            }
-        }
-
-        cards.shuffle()
+    fun show(): List<Card> {
         return cards
     }
-
-    fun firstDealOut(): MutableList<Card> {
-        return mutableListOf(cards.removeFirst(), cards.removeFirst())
-    }
-
-    fun size(): Int {
-        return cards.size
-    }
-
-    fun dealOut(): Card {
-        return cards.removeFirst()
-    }
-
 }

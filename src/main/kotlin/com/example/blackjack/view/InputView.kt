@@ -1,4 +1,4 @@
-package com.example.blackjack.domain.view
+package com.example.blackjack.view
 
 import java.util.Scanner
 

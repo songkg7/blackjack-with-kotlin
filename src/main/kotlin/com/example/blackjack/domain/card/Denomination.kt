@@ -1,6 +1,6 @@
 package com.example.blackjack.domain.card
 
-enum class Type(val value: Int) {
+enum class Denomination(val value: Int) {
     ACE(1),
     TWO(2),
     THREE(3),

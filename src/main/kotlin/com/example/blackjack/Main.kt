@@ -1,8 +1,8 @@
 package com.example.blackjack
 
 import com.example.blackjack.controller.BlackjackApp
-import com.example.blackjack.domain.view.InputView
-import com.example.blackjack.domain.view.OutputView
+import com.example.blackjack.view.InputView
+import com.example.blackjack.view.OutputView
 import java.util.Scanner
 
 fun main() {

@@ -1,5 +1,6 @@
 package com.example.blackjack.domain.card
 
+import org.assertj.core.api.Assertions
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.DisplayName
 import org.junit.jupiter.api.Test
@@ -7,23 +8,13 @@ import org.junit.jupiter.api.Test
 internal class CardsTest {
 
     @Test
-    @DisplayName("card 덱은 52장으로 구성된다.")
-    internal fun initCards() {
-        val cards = Cards()
+    @DisplayName("dealOut 을 하면 손패에 카드가 한 장 추가된다.")
+    internal fun dealOut() {
+        // TODO: cards 를 deck 에서 생성해주는 것이 맞는가? 직접 생성되야 하지 않을까?
+        val cards = Deck.firstDealOut()
+        val afterDealOut = cards.dealOut()
 
-        assertThat(cards.size()).isEqualTo(52)
-    }
-
-    @Test
-    @DisplayName("처음 카드는 2장씩 가져간다.")
-    internal fun firstDealOut() {
-        val cards = Cards()
-
-        val firstDealOut = cards.firstDealOut()
-
-        println("firstDealOut = $firstDealOut")
-
-        assertThat(firstDealOut).hasSize(2)
-        assertThat(cards.size()).isEqualTo(50)
+        assertThat(afterDealOut).isNotEqualTo(cards)
+        assertThat(afterDealOut.show()).hasSize(cards.show().size + 1)
     }
 }

@@ -1,21 +1,18 @@
 package com.example.blackjack.domain.gamer
 
-import com.example.blackjack.domain.card.Card
 import com.example.blackjack.domain.card.Cards
-import java.util.stream.Collector
-import java.util.stream.Collectors
-import java.util.stream.Stream
+import com.example.blackjack.domain.card.Deck
 
-class Player(val name: String, private val cards: Cards) : Gamer {
+class Player(val name: String) : Gamer {
 
-    private var hands: MutableList<Card> = cards.firstDealOut()
+    var cards: Cards = Deck.firstDealOut()
 
-    override fun open(): List<Card> {
-        return hands
+    override fun open(): Cards {
+        return cards
     }
 
     fun draw() {
-        val card = cards.dealOut()
-        hands.add(card)
+        cards = cards.dealOut()
     }
+
 }
