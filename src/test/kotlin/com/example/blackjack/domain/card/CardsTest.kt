@@ -15,6 +15,5 @@ internal class CardsTest {
         val afterDealOut = cards.dealOut()
 
         assertThat(afterDealOut).isNotEqualTo(cards)
-        assertThat(afterDealOut.show()).hasSize(cards.show().size + 1)
     }
 }

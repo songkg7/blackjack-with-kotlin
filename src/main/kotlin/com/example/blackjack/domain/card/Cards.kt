@@ -7,7 +7,10 @@ class Cards(private val cards: List<Card>){
         return Cards(cards + card)
     }
 
-    fun show(): List<Card> {
-        return cards
+    fun show() {
+        cards.forEach { println(it.toString()) }
+        val sum = cards.sumOf { card -> card.getValue() }
+        println("현재 점수: $sum")
     }
+
 }
