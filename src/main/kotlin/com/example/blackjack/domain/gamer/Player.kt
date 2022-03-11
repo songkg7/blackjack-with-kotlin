@@ -8,9 +8,8 @@ class Player(val name: String) : Gamer {
 
     var cards: Cards = Deck.firstDealOut()
 
-    override fun open() {
-        println("$name 님의 카드를 전개합니다.")
-        cards.show()
+    override fun open(): Int {
+        return cards.calcPoint()
     }
 
     fun hit() {
