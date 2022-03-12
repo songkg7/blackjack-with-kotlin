@@ -7,8 +7,16 @@ class Cards(private val cards: List<Card>){
         return Cards(cards + card)
     }
 
-    fun calcPoint(): Int {
+    fun calcValue(): Int {
         return cards.sumOf { card -> card.getValue() }
+    }
+
+    fun isBlackJack(): Boolean {
+        return calcValue() == 21
+    }
+
+    fun isBust(): Boolean {
+        return calcValue() > 21
     }
 
 }

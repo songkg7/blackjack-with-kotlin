@@ -15,12 +15,9 @@ class BlackjackApp(private val inputView: InputView, private val outputView: Out
         val player = Player(gamersName[1])
 
         // 현재 겜블러들의 손패를 공개하고 카드를 더 뽑을 것인지를 선택
-        val answer = inputView.dealOutSelectMessage(player)
-        if (answer.lowercase() == "y") {
+        val isDealOut = inputView.askDealOutMessage(player)
+        if (isDealOut) {
             player.hit()
-        }
-        if (answer.lowercase() == "n") {
-            TODO("game stop")
         }
 
 
