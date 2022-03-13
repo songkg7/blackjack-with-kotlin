@@ -1,22 +1,10 @@
 package com.example.blackjack.domain.card
 
-class Cards(private val cards: List<Card>){
+class Cards {
 
-    fun dealOut(): Cards {
-        val card = Deck.dealOut()
-        return Cards(cards + card)
+    var cards: List<Card> = emptyList()
+
+    fun add(card: Card) {
+        cards = cards + card
     }
-
-    fun calcValue(): Int {
-        return cards.sumOf { card -> card.getValue() }
-    }
-
-    fun isBlackJack(): Boolean {
-        return calcValue() == 21
-    }
-
-    fun isBust(): Boolean {
-        return calcValue() > 21
-    }
-
 }

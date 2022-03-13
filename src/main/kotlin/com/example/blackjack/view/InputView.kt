@@ -1,30 +1,24 @@
 package com.example.blackjack.view
 
-import com.example.blackjack.domain.gamer.Player
+import com.example.blackjack.domain.Money
 import java.util.Scanner
 
-private const val YES = "y"
-private const val NO = "n"
+class InputView {
+    companion object {
+        val scanner: Scanner = Scanner(System.`in`)
 
-class InputView(private val scanner: Scanner) {
-
-    fun inputGamersName(): List<String> {
-        println("게임에 참가할 사람들의 이름을 입력해주세요 (,)")
-        val nameInput = scanner.nextLine()
-        return nameInput.split(",").map { it.trim() }
-    }
-
-    fun askDealOutMessage(player: Player): Boolean {
-        println("현재 ${player.name} 의 점수는 ${player.open()}점 입니다.")
-        println("카드를 한 장 더 뽑으시겠습니까?")
-        val yesOrNo = scanner.nextLine()
-        if (validDealOutAnswer(yesOrNo)) {
-            return yesOrNo.equals(YES, true)
+        fun receiveNameInput(): List<String> {
+            println("게임에 참가할 사람들의 이름을 입력해주세요. (, 로 구분)")
+            val nameInput = scanner.nextLine()
+            return convertToPlayerNames(nameInput)
         }
-        throw IllegalArgumentException("입력은 y or n 만 가능합니다.")
-    }
 
-    private fun validDealOutAnswer(yesOrNo: String?): Boolean {
-        return yesOrNo.equals(YES, true) || yesOrNo.equals(NO, true)
+        private fun convertToPlayerNames(nameInput: String) = nameInput.split(",").map { it.trim() }
+
+        fun receiveMoneyInput(name: String): Money {
+            println("$name 의 베팅금액은?")
+            val amount = scanner.nextLine()
+            return Money(Integer.parseInt(amount))
+        }
     }
 }

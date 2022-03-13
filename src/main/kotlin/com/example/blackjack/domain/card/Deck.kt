@@ -2,31 +2,30 @@ package com.example.blackjack.domain.card
 
 class Deck private constructor() {
 
-    companion object {
-        private val deck: MutableList<Card> = initCards()
+    constructor(cards: MutableList<Card>) : this()
 
-        private fun initCards(): MutableList<Card> {
+    companion object {
+        fun create(): Deck {
             val cards = mutableListOf<Card>()
-            Symbol.values().forEach { symbol ->
-                Denomination.values().forEach { denomination ->
-                    cards.add(Card(symbol, denomination))
-                }
-            }
+            createDeck(cards)
 
             cards.shuffle()
-            return cards
+            return Deck(cards)
         }
 
-        fun firstDealOut(): Cards {
-            return Cards(listOf(deck.removeFirst(), deck.removeFirst()))
+        private fun createDeck(cards: MutableList<Card>) {
+            Symbol.values().forEach { symbol ->
+                createCard(cards, symbol)
+            }
         }
 
-        fun dealOut(): Card {
-            return deck.removeFirst()
-        }
-
-        fun size(): Int {
-            return deck.size
+        private fun createCard(
+            cards: MutableList<Card>,
+            symbol: Symbol
+        ) {
+            Denomination.values().forEach { denomination ->
+                cards.add(Card(symbol, denomination))
+            }
         }
     }
 
