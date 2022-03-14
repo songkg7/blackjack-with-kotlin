@@ -5,6 +5,7 @@ import com.example.blackjack.domain.card.Deck
 import com.example.blackjack.domain.gamer.Dealer
 import com.example.blackjack.domain.gamer.Players
 import com.example.blackjack.view.InputView
+import com.example.blackjack.view.OutputView
 
 fun main() {
     val playerNames = InputView.receiveNameInput()
@@ -14,5 +15,9 @@ fun main() {
     val dealer = Dealer.appoint()
 
     val blackjackGame = BlackjackGame.newInstance(Deck.create())
+
+    blackjackGame.firstDealOut(dealer, players)
+
+    OutputView.printFirstDealOutResult(dealer, players)
 
 }

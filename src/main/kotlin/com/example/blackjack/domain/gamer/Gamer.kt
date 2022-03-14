@@ -12,4 +12,7 @@ abstract class Gamer(name: String) {
         cards.add(card)
     }
 
+    override fun toString(): String {
+        return "Gamer(cards=$cards, name=$name)"
+    }
 }

@@ -5,14 +5,13 @@ class Deck private constructor() {
     constructor(cards: MutableList<Card>) : this()
 
     companion object {
+        private val cards = mutableListOf<Card>()
         fun create(): Deck {
-            val cards = mutableListOf<Card>()
             createDeck(cards)
 
             cards.shuffle()
             return Deck(cards)
         }
-
         private fun createDeck(cards: MutableList<Card>) {
             Symbol.values().forEach { symbol ->
                 createCard(cards, symbol)
@@ -26,6 +25,10 @@ class Deck private constructor() {
             Denomination.values().forEach { denomination ->
                 cards.add(Card(symbol, denomination))
             }
+        }
+
+        fun dealOut(): Card {
+            return cards.removeFirst()
         }
     }
 
