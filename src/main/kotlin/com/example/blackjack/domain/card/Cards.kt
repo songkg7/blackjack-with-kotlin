@@ -7,4 +7,9 @@ class Cards {
     fun add(card: Card) {
         cards = cards + card
     }
+
+    override fun toString(): String {
+        return "Cards(cards=$cards)"
+    }
+
 }

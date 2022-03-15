@@ -7,6 +7,10 @@ class Name(private val name: String) {
         }
     }
 
+    fun getValue(): String {
+        return name
+    }
+
     override fun toString(): String {
         return "Name(name='$name')"
     }

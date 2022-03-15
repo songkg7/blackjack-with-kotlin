@@ -11,8 +11,11 @@ class Players(players: Map<String, Money>) {
         players.forEach { (player, _) -> player.draw(Deck.dealOut()) }
     }
 
-    override fun toString(): String {
-        return "Players(players=${players.forEach { (player, money) -> println("${player.name}, $money") }})"
+    fun getAllNames(): List<Name> {
+        return players.keys.map { it.name }
     }
 
+    override fun toString(): String {
+        return "Players(players=$players)"
+    }
 }
