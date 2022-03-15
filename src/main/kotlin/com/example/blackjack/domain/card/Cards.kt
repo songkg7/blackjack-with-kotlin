@@ -9,7 +9,7 @@ class Cards {
     }
 
     override fun toString(): String {
-        return "Cards(cards=$cards)"
+        return "$cards"
     }
 
 }

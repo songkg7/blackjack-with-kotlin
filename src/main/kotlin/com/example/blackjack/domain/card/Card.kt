@@ -2,7 +2,7 @@ package com.example.blackjack.domain.card
 
 class Card(private val symbol: Symbol, private val denomination: Denomination) {
     override fun toString(): String {
-        return "Card(symbol=$symbol, type=$denomination)"
+        return "(symbol: $symbol, value: $denomination)"
     }
 
     fun getValue(): Int {

@@ -15,6 +15,10 @@ class Players(players: Map<String, Money>) {
         return players.keys.map { it.name }
     }
 
+    fun getPlayers(): List<Player> {
+        return players.keys.toList()
+    }
+
     override fun toString(): String {
         return "Players(players=$players)"
     }
