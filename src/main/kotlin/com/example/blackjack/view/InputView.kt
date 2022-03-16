@@ -1,6 +1,7 @@
 package com.example.blackjack.view
 
 import com.example.blackjack.domain.Money
+import com.example.blackjack.domain.gamer.Gamer
 import java.util.Scanner
 
 class InputView {
@@ -19,6 +20,11 @@ class InputView {
             println("$name 의 베팅금액은?")
             val amount = scanner.nextLine()
             return Money(Integer.parseInt(amount))
+        }
+
+        fun receiveYesOrNoInput(gamer: Gamer): String {
+            println("${gamer.name}님, 카드를 더 받겠습니까? (y or n)")
+            return scanner.nextLine()
         }
     }
 }

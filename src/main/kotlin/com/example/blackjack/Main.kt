@@ -20,4 +20,6 @@ fun main() {
 
     OutputView.printFirstDealOutResult(dealer, players)
 
+    blackjackGame.additionalDealOut(dealer, players)
+
 }

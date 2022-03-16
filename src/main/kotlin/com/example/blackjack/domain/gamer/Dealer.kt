@@ -12,4 +12,7 @@ class Dealer(name: String = "딜러") : Gamer(name) {
 
     }
 
+    override fun isAvailableDealOut(): Boolean {
+        return cards.getTotalValue() <= 16
+    }
 }

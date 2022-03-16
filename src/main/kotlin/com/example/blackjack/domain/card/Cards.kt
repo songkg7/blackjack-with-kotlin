@@ -12,4 +12,8 @@ class Cards {
         return "$cards"
     }
 
+    fun getTotalValue(): Int {
+        return cards.sumOf { it.getValue() }
+    }
+
 }

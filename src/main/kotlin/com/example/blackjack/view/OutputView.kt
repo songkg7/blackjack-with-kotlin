@@ -1,7 +1,7 @@
 package com.example.blackjack.view
 
 import com.example.blackjack.domain.gamer.Dealer
-import com.example.blackjack.domain.gamer.Player
+import com.example.blackjack.domain.gamer.Gamer
 import com.example.blackjack.domain.gamer.Players
 
 class OutputView {
@@ -26,6 +26,15 @@ class OutputView {
         private fun printPlayersFirstDealOutResult(players: Players) {
             val playerList = players.getPlayers()
             playerList.forEach { println("${it.name.getValue()} 카드: ${it.cards}") }
+        }
+
+        fun printDealOutResult(gamer: Gamer) {
+            println("${gamer.name} 카드 총합: ${gamer.cards.getTotalValue()}")
+        }
+
+        fun printDealerCardsStatus(dealer: Dealer) {
+            println("${dealer.name}의 카드 value 가 16 이하입니다.")
+            println("${dealer.name}는 카드의 value 가 16 이하일 경우에는 무조건 카드를 받습니다.")
         }
 
     }

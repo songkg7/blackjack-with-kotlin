@@ -15,4 +15,6 @@ abstract class Gamer(name: String) {
     override fun toString(): String {
         return "Gamer(cards=$cards, name=$name)"
     }
+
+    abstract fun isAvailableDealOut(): Boolean
 }
