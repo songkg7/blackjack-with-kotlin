@@ -22,4 +22,8 @@ class Players(players: Map<String, Money>) {
     override fun toString(): String {
         return "Players(players=$players)"
     }
+
+    fun calculateProfit(dealer: Dealer): Any {
+        TODO("Not yet implemented")
+    }
 }

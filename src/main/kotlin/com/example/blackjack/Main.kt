@@ -1,6 +1,7 @@
 package com.example.blackjack
 
 import com.example.blackjack.controller.BlackjackGame
+import com.example.blackjack.domain.GameResult
 import com.example.blackjack.domain.card.Deck
 import com.example.blackjack.domain.gamer.Dealer
 import com.example.blackjack.domain.gamer.Players
@@ -21,5 +22,8 @@ fun main() {
     OutputView.printFirstDealOutResult(dealer, players)
 
     blackjackGame.additionalDealOut(dealer, players)
+
+    val gameResult = GameResult(dealer, players)
+    OutputView.printTotalResult(gameResult)
 
 }

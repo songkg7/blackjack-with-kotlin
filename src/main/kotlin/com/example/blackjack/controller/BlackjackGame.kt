@@ -29,7 +29,7 @@ class BlackjackGame private constructor() {
     }
 
     fun additionalDealOut(dealer: Dealer, players: Players) {
-        if (dealer.isAvailableDealOut()) {
+        while (dealer.isAvailableDealOut()) {
             OutputView.printDealerCardsStatus(dealer)
             dealer.draw(Deck.dealOut())
             OutputView.printDealOutResult(dealer)
