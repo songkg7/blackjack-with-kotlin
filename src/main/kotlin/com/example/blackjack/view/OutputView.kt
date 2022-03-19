@@ -30,12 +30,12 @@ class OutputView {
         }
 
         fun printDealOutResult(gamer: Gamer) {
-            println("${gamer.name} 카드 총합: ${gamer.cards.getTotalValue()}")
+            println("${gamer.name.getValue()} 카드 총합: ${gamer.cards.getTotalValue()}")
         }
 
         fun printDealerCardsStatus(dealer: Dealer) {
-            println("${dealer.name}의 카드 value 가 16 이하입니다.")
-            println("${dealer.name}는 카드의 value 가 16 이하일 경우에는 무조건 카드를 받습니다.")
+            println("${dealer.name.getValue()}의 카드 value 가 16 이하입니다.")
+            println("${dealer.name.getValue()}는 카드의 value 가 16 이하일 경우에는 무조건 카드를 받습니다.")
         }
 
         fun printTotalResult(gameResult: GameResult) {

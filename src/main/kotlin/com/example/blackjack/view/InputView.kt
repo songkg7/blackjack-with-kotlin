@@ -23,8 +23,8 @@ class InputView {
         }
 
         fun receiveYesOrNoInput(gamer: Gamer): String {
-            println("${gamer.name}의 카드: ${gamer.cards}, 총합: ${gamer.cards.getTotalValue()}")
-            println("${gamer.name}님, 카드를 더 받겠습니까? (y or n)")
+            println("${gamer.name.getValue()}의 카드: ${gamer.cards}, 총합: ${gamer.cards.getTotalValue()}")
+            println("${gamer.name.getValue()}님, 카드를 더 받겠습니까? (y or n)")
             return scanner.nextLine()
         }
     }
