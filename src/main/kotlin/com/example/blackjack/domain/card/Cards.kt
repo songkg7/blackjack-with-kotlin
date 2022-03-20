@@ -16,4 +16,12 @@ class Cards {
         return cards.sumOf { it.getValue() }
     }
 
+    fun isBust(): Boolean {
+        return getTotalValue() > 21
+    }
+
+    fun isBlackJack(): Boolean {
+        return getTotalValue() == 21
+    }
+
 }
