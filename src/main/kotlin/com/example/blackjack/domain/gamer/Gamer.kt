@@ -17,4 +17,12 @@ abstract class Gamer(name: String) {
     }
 
     abstract fun isAvailableDealOut(): Boolean
+
+    fun isBlackJack(): Boolean {
+        return cards.isBlackJack()
+    }
+
+    fun isBust(): Boolean {
+        return cards.isBust()
+    }
 }

@@ -1,10 +1,8 @@
-package com.example.blackjack.domain
+package com.example.blackjack.domain.result
 
 import com.example.blackjack.domain.gamer.Dealer
 import com.example.blackjack.domain.gamer.Gamer
-import com.example.blackjack.domain.gamer.Player
 import com.example.blackjack.domain.gamer.Players
-import java.util.stream.Stream
 
 class GameResult(dealer: Dealer, players: Players) {
 
