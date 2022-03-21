@@ -30,7 +30,7 @@ class OutputView {
         }
 
         fun printDealOutResult(gamer: Gamer) {
-            println("${gamer.name.getValue()} 카드 총합: ${gamer.cards.getTotalValue()}")
+            println("${gamer.name.getValue()} 카드 총합: ${gamer.calculateScore()}")
         }
 
         fun printDealerCardsStatus(dealer: Dealer) {
@@ -39,7 +39,7 @@ class OutputView {
         }
 
         fun printTotalResult(gameResult: GameResult) {
-            println("${gameResult.gamersPoint}")
+            TODO("게임 결과 출력 구현")
         }
 
     }

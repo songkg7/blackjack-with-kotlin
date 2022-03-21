@@ -25,4 +25,8 @@ abstract class Gamer(name: String) {
     fun isBust(): Boolean {
         return cards.isBust()
     }
+
+    fun calculateScore(): Int {
+        return cards.getTotalValue()
+    }
 }

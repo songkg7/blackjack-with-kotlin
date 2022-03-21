@@ -3,10 +3,10 @@ package com.example.blackjack.domain.result
 import com.example.blackjack.domain.gamer.Dealer
 import com.example.blackjack.domain.gamer.Player
 
-class LosePolicy : ResultPolicy {
+class DrawPolicy : ResultPolicy {
 
     override fun judge(dealer: Dealer, player: Player): Boolean {
-        return (dealer.calculateScore() > player.calculateScore()) || player.isBust()
-                || (!player.isBlackJack() && dealer.isBlackJack())
+        return (!player.isBust() && (player.calculateScore() == dealer.calculateScore()))
+                || (player.isBlackJack() && dealer.isBlackJack())
     }
 }
