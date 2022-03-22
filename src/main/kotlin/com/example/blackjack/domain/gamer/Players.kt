@@ -2,6 +2,7 @@ package com.example.blackjack.domain.gamer
 
 import com.example.blackjack.domain.Money
 import com.example.blackjack.domain.card.Deck
+import com.example.blackjack.domain.result.GameResult
 
 class Players(players: Map<String, Money>) {
 
@@ -19,22 +20,22 @@ class Players(players: Map<String, Money>) {
         return players.keys.toList()
     }
 
-    override fun toString(): String {
-        return "Players(players=$players)"
+    private fun bettingMoney(): Money {
+        val sum = players.map { it.value.amount }.sum()
+        return Money(sum)
     }
 
-    fun calculateProfit(dealer: Dealer): Map<Player, Money> {
-        // 누가 이겼는지 판단해야함
-        // Rule 객체가 필요
-        val dealerTotal = dealer.cards.getTotalValue()
-        val dealerIntMap = mapOf(dealer to dealer.cards.getTotalValue())
+    fun calculateProfit(dealer: Dealer): Map<Gamer, Money> {
+        val resultMap = mutableMapOf<Gamer, Money>()
+        for (player in players.keys) {
+            val gameResult = GameResult.judge(dealer, player)
+            val profit = gameResult.profit(players.getValue(player))
+            resultMap[player] = profit
+        }
 
-        val winner = players
-            .filter { !it.key.cards.isBust() }
-            .filter { it.key.cards.getTotalValue() > dealerTotal }
-            .map { it.key to it.value.multiply(1.5) }
-            .toMap()
+        val sum = resultMap.values.filter { it.amount > 0 }.sumOf { it.amount }
+        resultMap[dealer] = bettingMoney().minus(Money(sum))
 
-        return winner
+        return resultMap
     }
 }

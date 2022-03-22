@@ -23,9 +23,7 @@ fun main() {
 
     blackjackGame.additionalDealOut(dealer, players)
 
-    for (player in players.getPlayers()) {
-        val gameResult = GameResult.judge(dealer, player)
-        OutputView.printTotalResult(gameResult)
-    }
+    val result = players.calculateProfit(dealer)
+    OutputView.printTotalResult(result)
 
 }

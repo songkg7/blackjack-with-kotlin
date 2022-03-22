@@ -9,4 +9,8 @@ class Money(val amount: Int) {
     fun multiply(ratio: Double): Money {
         return Money((amount * ratio).toInt())
     }
+
+    fun minus(money: Money): Money {
+        return Money(amount - money.amount)
+    }
 }

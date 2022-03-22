@@ -1,5 +1,6 @@
 package com.example.blackjack.view
 
+import com.example.blackjack.domain.Money
 import com.example.blackjack.domain.result.GameResult
 import com.example.blackjack.domain.gamer.Dealer
 import com.example.blackjack.domain.gamer.Gamer
@@ -38,10 +39,11 @@ class OutputView {
             println("${dealer.name.getValue()}는 카드의 value 가 16 이하일 경우에는 무조건 카드를 받습니다.")
         }
 
-        fun printTotalResult(gameResult: GameResult) {
-            TODO("게임 결과 출력 구현")
+        fun printTotalResult(result: Map<Gamer, Money>) {
+            result.forEach { (gamer, money) ->
+                println("${gamer.name.getValue()}님의 총 수익은 ${money.amount} 입니다.")
+            }
         }
-
     }
 
 }

@@ -8,8 +8,8 @@ import com.example.blackjack.domain.gamer.Players
 
 enum class GameResult(private val ratio: Double, val resultPolicy: ResultPolicy) {
 
-    BLACKJACK(1.5, BlackJackPolicy()),
-    WIN(1.0, WinPolicy()),
+    BLACKJACK(2.5, BlackJackPolicy()),
+    WIN(2.0, WinPolicy()),
     DRAW(0.0, DrawPolicy()),
     LOSE(-1.0, LosePolicy());
 
@@ -27,5 +27,4 @@ enum class GameResult(private val ratio: Double, val resultPolicy: ResultPolicy)
     fun profit(money: Money): Money {
         return money.multiply(ratio)
     }
-
 }

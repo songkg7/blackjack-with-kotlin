@@ -6,6 +6,6 @@ import com.example.blackjack.domain.gamer.Player
 class WinPolicy : ResultPolicy {
 
     override fun judge(dealer: Dealer, player: Player): Boolean {
-        return player.calculateScore() > dealer.calculateScore()
+        return !player.isBust() && (player.calculateScore() > dealer.calculateScore())
     }
 }
